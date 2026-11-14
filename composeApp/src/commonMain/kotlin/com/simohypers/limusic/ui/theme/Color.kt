@@ -8,19 +8,19 @@ import androidx.compose.ui.graphics.Color
  * Seed for the generated schemes (a custom colour the user has not picked yet). Limusic's crimson,
  * the desktop app's `--primary` in its dark palette.
  */
-val seed = Color(0xFFA50036)
+val seed = Color(0xFF786BFF)
 
 // ===== Limusic palette =====
 // Converted from the desktop app's default theme tokens (ui/src/routes/layout.css, oklch with the
 // neutral hue 326). The neutrals carry a faint magenta tint; the accent is a crimson.
 
 internal object LimusicDark {
-    val background = Color(0xFF0C090C)
+    val background = Color(0xFF080A14)
     val foreground = Color(0xFFFAFAFA)
-    val card = Color(0xFF1D161D)
-    val primary = Color(0xFFFF2056) // the desktop's sidebar-primary: bright enough for text and icons
+    val card = Color(0xFF17182B)
+    val primary = Color(0xFF786BFF) // VFX electric violet: bright enough for text and icons
     val onPrimary = Color(0xFFFFFFFF)
-    val primaryContainer = Color(0xFFA50036) // the desktop's --primary, used as a fill
+    val primaryContainer = Color(0xFF4E43B8) // VFX deep violet glass fill
     val onPrimaryContainer = Color(0xFFFFF1F2)
     val secondary = Color(0xFF292629)
     val muted = Color(0xFF2B212B)
@@ -40,10 +40,10 @@ internal object LimusicDark {
 internal object LimusicLight {
     val background = Color(0xFFFFFFFF)
     val foreground = Color(0xFF0C090C)
-    val primary = Color(0xFFC70036)
+    val primary = Color(0xFF6255D8)
     val onPrimary = Color(0xFFFFF1F2)
     val primaryContainer = Color(0xFFFFE1E6)
-    val onPrimaryContainer = Color(0xFFA50036)
+    val onPrimaryContainer = Color(0xFF4E43B8)
     val secondary = Color(0xFFF4F4F4)
     val onSecondary = Color(0xFF1A171A)
     val muted = Color(0xFFF3F1F3)
@@ -99,7 +99,7 @@ internal val MaterialYouSeed = Color(0xFF6750A4)
 // ===== Semantic colors (not derivable from the color scheme) =====
 
 /** Liked/favorite state (heart buttons, favorite tiles). */
-val favoriteColor = Color(0xFFFF2056)
+val favoriteColor = Color(0xFF8B7CFF)
 
 /** Currently playing lyric line: plain white, as on the desktop app. */
 val lyricActiveColor = Color(0xFFFFFFFF)

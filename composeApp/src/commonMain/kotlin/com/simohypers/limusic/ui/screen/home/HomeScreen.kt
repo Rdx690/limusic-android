@@ -411,7 +411,7 @@ fun HomeScreen(
                     CompositionLocalProvider(LocalHomeCardSize provides layout.cards.width()) {
                     LazyColumn(
                         state = scrollState,
-                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalArrangement = Arrangement.spacedBy(6.dp),
                     ) {
                         if (blocks.isEmpty() && params == null) {
                             // Everything switched off. Say so and hand back the way in, rather than a
@@ -438,7 +438,7 @@ fun HomeScreen(
                                 Column(
                                     modifier =
                                         Modifier
-                                            .padding(horizontal = 15.dp),
+                                            .padding(horizontal = 14.dp),
                                 ) {
                                     if (index == 0) {
                                         Spacer(
@@ -447,7 +447,7 @@ fun HomeScreen(
                                             ),
                                         )
                                     }
-                                    Spacer(modifier = Modifier.height(8.dp))
+                                    Spacer(modifier = Modifier.height(6.dp))
                                     val item = (block as? HomeBlock.Shelf)?.item
                                     // Quick picks takes the hero carousel and the song-card shelves ("Your
                                     // daily discover") take the 4-row list, swapped from upstream.
@@ -661,9 +661,9 @@ private sealed interface HomeBlock {
 
 private fun HomeLayout.CardSize.width(): Dp =
     when (this) {
-        HomeLayout.CardSize.SMALL -> 124.dp
-        HomeLayout.CardSize.MEDIUM -> 160.dp
-        HomeLayout.CardSize.LARGE -> 200.dp
+        HomeLayout.CardSize.SMALL -> 112.dp
+        HomeLayout.CardSize.MEDIUM -> 144.dp
+        HomeLayout.CardSize.LARGE -> 184.dp
     }
 
 /** Avatar, desktop's greeting, Listen Together and Settings. The avatar opens the account picker. */
@@ -691,18 +691,18 @@ fun HomeTopAppBar(
             Modifier
                 .fillMaxWidth()
                 .statusBarsPadding()
-                .height(72.dp)
-                .padding(start = 16.dp, end = 4.dp),
+                .height(64.dp)
+                .padding(start = 14.dp, end = 2.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         // Signed out (or mid sign-in) there is no picture: no avatar, not the app icon in its place.
         account?.second?.takeIf { it.isNotBlank() }?.let { url ->
-            Avatar(url, 44.dp, Modifier.clickable(onClick = onAvatarClick))
-            Spacer(Modifier.width(12.dp))
+            Avatar(url, 40.dp, Modifier.clickable(onClick = onAvatarClick))
+            Spacer(Modifier.width(8.dp))
         }
         Text(
             text = if (firstName != null) "$daypart, $firstName" else daypart,
-            style = typo().headlineLarge,
+            style = typo().titleLarge,
             color = MaterialTheme.colorScheme.onBackground,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
@@ -823,7 +823,7 @@ fun QuickPicks(
 
     Column(
         Modifier
-            .padding(vertical = 8.dp)
+            .padding(vertical = 6.dp)
             .onGloballyPositioned { coordinates ->
                 with(density) {
                     widthDp = (coordinates.size.width).toDp()
@@ -837,13 +837,13 @@ fun QuickPicks(
                 }
                 Text(
                     text = homeItem.title,
-                    style = typo().headlineMedium,
+                    style = typo().titleLarge,
                     color = MaterialTheme.colorScheme.onBackground,
                     maxLines = 1,
                     modifier =
                         Modifier
                             .fillMaxWidth()
-                            .padding(vertical = 5.dp),
+                            .padding(vertical = 3.dp),
                 )
             }
             if (homeItem.playAllEndpoint != null) {
@@ -860,7 +860,7 @@ fun QuickPicks(
         }
         LazyHorizontalGrid(
             rows = GridCells.Fixed(4),
-            modifier = Modifier.height(256.dp),
+            modifier = Modifier.height(232.dp),
             state = lazyListState,
             flingBehavior = snapperFlingBehavior,
         ) {
@@ -924,7 +924,7 @@ fun MoodMomentAndGenre(
             val flingBehavior = rememberSnapFlingBehavior(SnapLayoutInfoProvider(lazyGridState = gridState))
             Text(
                 text = section.title,
-                style = typo().headlineMedium,
+                style = typo().titleLarge,
                 color = MaterialTheme.colorScheme.onBackground,
                 maxLines = 1,
                 modifier =
@@ -934,7 +934,7 @@ fun MoodMomentAndGenre(
             )
             LazyHorizontalGrid(
                 rows = GridCells.Fixed(3),
-                modifier = Modifier.height(210.dp),
+                modifier = Modifier.height(192.dp),
                 state = gridState,
                 flingBehavior = flingBehavior,
             ) {
@@ -969,7 +969,7 @@ fun ChartTitle() {
         )
         Text(
             text = stringResource(Res.string.chart),
-            style = typo().headlineMedium,
+            style = typo().titleLarge,
             color = MaterialTheme.colorScheme.onBackground,
             maxLines = 1,
             modifier =
@@ -1004,7 +1004,7 @@ fun ChartData(
         chart.listChartItem.forEach { item ->
             Text(
                 text = item.title,
-                style = typo().headlineMedium,
+                style = typo().titleLarge,
                 color = MaterialTheme.colorScheme.onBackground,
                 maxLines = 1,
                 modifier =
@@ -1035,7 +1035,7 @@ fun ChartData(
         }
         Text(
             text = stringResource(Res.string.top_artists),
-            style = typo().headlineMedium,
+            style = typo().titleLarge,
             color = MaterialTheme.colorScheme.onBackground,
             maxLines = 1,
             modifier =
@@ -1045,7 +1045,7 @@ fun ChartData(
         )
         LazyHorizontalGrid(
             rows = GridCells.Fixed(3),
-            modifier = Modifier.height(240.dp),
+            modifier = Modifier.height(220.dp),
             state = lazyListState2,
             flingBehavior = snapperFlingBehavior2,
         ) {
@@ -1076,7 +1076,7 @@ fun ChartData(
         chart.podcasts?.let { podcasts ->
             Text(
                 text = podcasts.title,
-                style = typo().headlineMedium,
+                style = typo().titleLarge,
                 color = MaterialTheme.colorScheme.onBackground,
                 maxLines = 1,
                 modifier =
@@ -1088,7 +1088,7 @@ fun ChartData(
             val podcastFlingBehavior = rememberSnapFlingBehavior(SnapLayoutInfoProvider(lazyGridState = podcastGridState))
             LazyHorizontalGrid(
                 rows = GridCells.Fixed(3),
-                modifier = Modifier.height(240.dp),
+                modifier = Modifier.height(220.dp),
                 state = podcastGridState,
                 flingBehavior = podcastFlingBehavior,
             ) {

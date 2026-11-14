@@ -24,6 +24,10 @@ maxrave-dev and its contributors, cut down and rebuilt to work like the desktop 
 
 </div>
 
+## VFX MUSIC build
+
+This repository includes the **VFX MUSIC** build by **Sourajit VFX**: the Music Vault logo, violet-cyan iOS-inspired glass styling, Apple Music player default, and a more compact Spotify-like Home screen. The signed Android APKs for this build are published in the [Rdx690 GitHub Releases](https://github.com/Rdx690/limusic-android/releases/latest).
+
 ---
 
 ## Features

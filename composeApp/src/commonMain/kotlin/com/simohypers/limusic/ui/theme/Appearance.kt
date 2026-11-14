@@ -32,7 +32,7 @@ enum class ThemePreset(
 }
 
 /** Desktop's default --radius, 0.45rem: the radius the app's own corners were drawn at. */
-const val DEFAULT_RADIUS = 7.2f
+const val DEFAULT_RADIUS = 12f
 
 /**
  * What the user picked on the Appearance page: a preset plus overrides on top of it. Null means

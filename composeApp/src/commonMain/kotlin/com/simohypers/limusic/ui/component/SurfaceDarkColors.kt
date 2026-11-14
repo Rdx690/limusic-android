@@ -32,16 +32,16 @@ fun rememberSurfaceDarkColors(): SurfaceDarkColors {
     val cs = MaterialTheme.colorScheme
     return if (LocalForceDarkText.current) {
         SurfaceDarkColors(
-            container = Color(0xFF242424),
-            handle = Color(0xFF474545),
+            container = Color(0xE61A1B31),
+            handle = Color(0xFF5C5F86),
             content = Color.White,
             subtitle = Color(0xFFB0B0A0),
             disabled = Color.Gray,
         )
     } else {
         SurfaceDarkColors(
-            container = cs.surfaceContainerHigh, // the card colour Limusic desktop uses for menus
-            handle = cs.outlineVariant,
+            container = cs.surfaceContainerHigh.copy(alpha = 0.84f), // frosted ink-blue glass
+            handle = cs.outlineVariant.copy(alpha = 0.72f),
             content = cs.onSurface,
             subtitle = cs.onSurfaceVariant,
             disabled = cs.onSurfaceVariant.copy(alpha = 0.38f),
