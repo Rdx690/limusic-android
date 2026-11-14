@@ -322,6 +322,7 @@
     <string name="romanization_korean" translatable="false">Korean</string>
     <string name="romanization_chinese" translatable="false">Chinese</string>
     <string name="romanization_hindi" translatable="false">Hindi</string>
+    <string name="romanization_bengali" translatable="false">Bengali</string>
     <string name="romanization_punjabi" translatable="false">Punjabi</string>
     <string name="romanization_russian" translatable="false">Russian</string>
     <string name="romanization_ukrainian" translatable="false">Ukrainian</string>

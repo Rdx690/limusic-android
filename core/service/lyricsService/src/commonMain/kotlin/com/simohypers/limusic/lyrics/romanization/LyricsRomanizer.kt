@@ -38,6 +38,9 @@ object LyricsRomanizer {
                 LineScript.DEVANAGARI ->
                     if (RomanizationLanguage.HINDI in enabled) IndicRomanizer.romanizeDevanagari(line) else null
 
+                LineScript.BENGALI ->
+                    if (RomanizationLanguage.BENGALI in enabled) BengaliRomanizer.romanize(line) else null
+
                 LineScript.GURMUKHI ->
                     if (RomanizationLanguage.PUNJABI in enabled) IndicRomanizer.romanizeGurmukhi(line) else null
 

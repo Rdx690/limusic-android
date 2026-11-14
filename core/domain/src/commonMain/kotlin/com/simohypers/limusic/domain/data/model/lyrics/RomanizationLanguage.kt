@@ -1,7 +1,7 @@
 package com.simohypers.limusic.domain.data.model.lyrics
 
 /**
- * The twelve languages whose lyrics can be shown in Latin script.
+ * The thirteen languages whose lyrics can be shown in Latin script.
  *
  * The list is of LANGUAGES, not scripts, and the difference is why each entry exists separately:
  * seven of them are written in Cyrillic and share one alphabet while romanizing it differently —
@@ -18,6 +18,7 @@ enum class RomanizationLanguage {
     KOREAN,
     CHINESE,
     HINDI,
+    BENGALI,
     PUNJABI,
     RUSSIAN,
     UKRAINIAN,

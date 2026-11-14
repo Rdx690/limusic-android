@@ -324,6 +324,7 @@ import limusic.composeapp.generated.resources.romanization_belarusian
 import limusic.composeapp.generated.resources.romanization_bulgarian
 import limusic.composeapp.generated.resources.romanization_chinese
 import limusic.composeapp.generated.resources.romanization_hindi
+import limusic.composeapp.generated.resources.romanization_bengali
 import limusic.composeapp.generated.resources.romanization_japanese
 import limusic.composeapp.generated.resources.romanization_japanese_dict_downloading
 import limusic.composeapp.generated.resources.romanization_japanese_dict_failed
@@ -1314,6 +1315,7 @@ fun SettingScreen(
                                     RomanizationLanguage.KOREAN to stringResource(Res.string.romanization_korean),
                                     RomanizationLanguage.CHINESE to stringResource(Res.string.romanization_chinese),
                                     RomanizationLanguage.HINDI to stringResource(Res.string.romanization_hindi),
+                                    RomanizationLanguage.BENGALI to stringResource(Res.string.romanization_bengali),
                                     RomanizationLanguage.PUNJABI to stringResource(Res.string.romanization_punjabi),
                                     RomanizationLanguage.RUSSIAN to stringResource(Res.string.romanization_russian),
                                     RomanizationLanguage.UKRAINIAN to stringResource(Res.string.romanization_ukrainian),

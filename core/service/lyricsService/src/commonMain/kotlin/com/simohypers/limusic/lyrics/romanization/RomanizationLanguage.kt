@@ -13,6 +13,7 @@ internal enum class LineScript {
     HANGUL,
     HAN,
     DEVANAGARI,
+    BENGALI,
     GURMUKHI,
     CYRILLIC,
 }
@@ -29,6 +30,8 @@ private const val HANGUL_JAMO_START = 'ᄀ'
 private const val HANGUL_JAMO_END = 'ᇿ'
 private const val DEVANAGARI_START = 'ऀ'
 private const val DEVANAGARI_END = 'ॿ'
+private const val BENGALI_START = 'ঀ'
+private const val BENGALI_END = '৿'
 private const val GURMUKHI_START = '਀'
 private const val GURMUKHI_END = '੿'
 private const val CYRILLIC_START = 'Ѐ'
@@ -43,6 +46,8 @@ internal fun Char.isHangul(): Boolean =
     this in HANGUL_SYLLABLE_START..HANGUL_SYLLABLE_END || this in HANGUL_JAMO_START..HANGUL_JAMO_END
 
 internal fun Char.isDevanagari(): Boolean = this in DEVANAGARI_START..DEVANAGARI_END
+
+internal fun Char.isBengali(): Boolean = this in BENGALI_START..BENGALI_END
 
 internal fun Char.isGurmukhi(): Boolean = this in GURMUKHI_START..GURMUKHI_END
 
@@ -59,6 +64,7 @@ internal fun detectScript(line: String): LineScript {
     if (line.any { it.isKana() }) return LineScript.JAPANESE
     if (line.any { it.isHangul() }) return LineScript.HANGUL
     if (line.any { it.isDevanagari() }) return LineScript.DEVANAGARI
+    if (line.any { it.isBengali() }) return LineScript.BENGALI
     if (line.any { it.isGurmukhi() }) return LineScript.GURMUKHI
     if (line.any { it.isCyrillic() }) return LineScript.CYRILLIC
     if (line.any { it.isHan() }) return LineScript.HAN
