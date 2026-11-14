@@ -623,7 +623,7 @@ internal class DataStoreManagerImpl(
 
     override val romanizationLanguages =
         settingsDataStore.data.map { preferences ->
-            preferences[ROMANIZATION_LANGUAGES] ?: ""
+            preferences[ROMANIZATION_LANGUAGES] ?: "HINDI,BENGALI"
         }
 
     override suspend fun setRomanizationLanguages(languages: String) {
