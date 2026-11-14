@@ -36,7 +36,7 @@ import org.koin.mp.KoinPlatform.getKoin
 import kotlin.time.Duration.Companion.hours
 
 private const val TAG = "Updater"
-private const val GITHUB = "https://api.github.com/repos/SimoHypers/limusic-android"
+private const val GITHUB = "https://api.github.com/repos/Rdx690/limusic-android"
 
 /** A release newer than this build, with the APK picked for this phone. */
 data class AvailableUpdate(

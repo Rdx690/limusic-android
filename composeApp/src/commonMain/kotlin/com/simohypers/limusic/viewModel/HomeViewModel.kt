@@ -166,9 +166,9 @@ class HomeViewModel(
                     }
                 // Quick picks leads Home, but YouTube can send it on a later page. Fetch up to it
                 // before showing Home, or it lands above the list once the user scrolls there.
-                // ponytail: two extra pages at most, the same requests scrolling down would make.
+                // Preload three extra pages so the opening feed has more shelves ready.
                 val quickPicks = getString(Res.string.quick_picks)
-                repeat(2) {
+                repeat(3) {
                     val next = continuation.value
                     if (next.isNullOrEmpty() || _homeItemList.value.any { it.title == quickPicks }) return@repeat
                     homeRepository
@@ -325,4 +325,3 @@ data class Shortcut(
         fun encode(list: List<Shortcut>): String = json.encodeToString(list)
     }
 }
-

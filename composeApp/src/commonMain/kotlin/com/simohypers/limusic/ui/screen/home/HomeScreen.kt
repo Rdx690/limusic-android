@@ -235,7 +235,7 @@ fun HomeScreen(
         remember(homeData, params, signedIn) {
             homeData.mapNotNull { item ->
                 val kind = homeShelfKind(item.title, item.moreEndpoint?.browseId)
-                if (kind != null || params != null || !signedIn) HomeBlock.Shelf(item, kind) else null
+                if (kind != null || params != null || !signedIn || item.contents.isNotEmpty()) HomeBlock.Shelf(item, kind) else null
             }
         }
     val blocks =
@@ -342,7 +342,7 @@ fun HomeScreen(
                         scrollState.layoutInfo.visibleItemsInfo
                             .lastOrNull()
                             ?.index ?: -9
-                    ) >= (scrollState.layoutInfo.totalItemsCount - 1)
+                            ) >= (scrollState.layoutInfo.totalItemsCount - 3)
             }
         }
 
@@ -661,9 +661,9 @@ private sealed interface HomeBlock {
 
 private fun HomeLayout.CardSize.width(): Dp =
     when (this) {
-        HomeLayout.CardSize.SMALL -> 112.dp
-        HomeLayout.CardSize.MEDIUM -> 144.dp
-        HomeLayout.CardSize.LARGE -> 184.dp
+        HomeLayout.CardSize.SMALL -> 104.dp
+        HomeLayout.CardSize.MEDIUM -> 136.dp
+        HomeLayout.CardSize.LARGE -> 176.dp
     }
 
 /** Avatar, desktop's greeting, Listen Together and Settings. The avatar opens the account picker. */
@@ -691,13 +691,13 @@ fun HomeTopAppBar(
             Modifier
                 .fillMaxWidth()
                 .statusBarsPadding()
-                .height(64.dp)
+                .height(60.dp)
                 .padding(start = 14.dp, end = 2.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         // Signed out (or mid sign-in) there is no picture: no avatar, not the app icon in its place.
         account?.second?.takeIf { it.isNotBlank() }?.let { url ->
-            Avatar(url, 40.dp, Modifier.clickable(onClick = onAvatarClick))
+            Avatar(url, 38.dp, Modifier.clickable(onClick = onAvatarClick))
             Spacer(Modifier.width(8.dp))
         }
         Text(
@@ -860,7 +860,7 @@ fun QuickPicks(
         }
         LazyHorizontalGrid(
             rows = GridCells.Fixed(4),
-            modifier = Modifier.height(232.dp),
+            modifier = Modifier.height(216.dp),
             state = lazyListState,
             flingBehavior = snapperFlingBehavior,
         ) {
