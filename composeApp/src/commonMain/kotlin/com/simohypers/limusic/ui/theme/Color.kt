@@ -22,7 +22,7 @@ internal object LimusicDark {
     val onPrimary = Color(0xFFFFFFFF)
     val primaryContainer = Color(0xFF4E43B8) // VFX deep violet glass fill
     val onPrimaryContainer = Color(0xFFFFF1F2)
-    val secondary = Color(0xFF292629)
+    val secondary = Color(0xFFFF8A3D) // VFX warm orange secondary accent
     val muted = Color(0xFF2B212B)
     val mutedForeground = Color(0xFFA89EA8)
     val ring = Color(0xFF7A697A)
@@ -44,7 +44,7 @@ internal object LimusicLight {
     val onPrimary = Color(0xFFFFF1F2)
     val primaryContainer = Color(0xFFFFE1E6)
     val onPrimaryContainer = Color(0xFF4E43B8)
-    val secondary = Color(0xFFF4F4F4)
+    val secondary = Color(0xFFFFE0CF)
     val onSecondary = Color(0xFF1A171A)
     val muted = Color(0xFFF3F1F3)
     val mutedForeground = Color(0xFF7A697A)

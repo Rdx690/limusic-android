@@ -9,12 +9,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalMinimumInteractiveComponentSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -91,13 +93,15 @@ fun LimusicNavigationBar(
     val onTabRoot = backStack.lastOrNull()?.destination?.let(::limusicTabIndex) == currentTab
     Column(modifier) {
         HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
-        NavigationBar(
-            containerColor = MaterialTheme.colorScheme.background,
-            tonalElevation = 0.dp,
-        ) {
-            limusicTabs.forEachIndexed { index, tab ->
-                val selected = index == currentTab
-                NavigationBarItem(
+        CompositionLocalProvider(LocalMinimumInteractiveComponentSize provides 0.dp) {
+            NavigationBar(
+                modifier = Modifier.height(68.dp),
+                containerColor = MaterialTheme.colorScheme.background,
+                tonalElevation = 0.dp,
+            ) {
+                limusicTabs.forEachIndexed { index, tab ->
+                    val selected = index == currentTab
+                    NavigationBarItem(
                     selected = selected,
                     onClick = {
                         if (selected && onTabRoot) {
@@ -119,7 +123,8 @@ fun LimusicNavigationBar(
                             unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
                             unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant,
                         ),
-                )
+                    )
+                }
             }
         }
     }

@@ -101,7 +101,7 @@ fun LimusicMiniPlayer(
         Row(
             Modifier
                 .fillMaxWidth()
-                .height(58.dp)
+                .height(64.dp)
                 .padding(start = 8.dp, end = 4.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {

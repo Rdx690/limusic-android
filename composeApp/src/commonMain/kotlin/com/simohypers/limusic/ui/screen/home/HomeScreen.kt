@@ -411,7 +411,7 @@ fun HomeScreen(
                     CompositionLocalProvider(LocalHomeCardSize provides layout.cards.width()) {
                     LazyColumn(
                         state = scrollState,
-                        verticalArrangement = Arrangement.spacedBy(6.dp),
+                        verticalArrangement = Arrangement.spacedBy(4.dp),
                     ) {
                         if (blocks.isEmpty() && params == null) {
                             // Everything switched off. Say so and hand back the way in, rather than a
@@ -438,7 +438,7 @@ fun HomeScreen(
                                 Column(
                                     modifier =
                                         Modifier
-                                            .padding(horizontal = 14.dp),
+                                            .padding(horizontal = 12.dp),
                                 ) {
                                     if (index == 0) {
                                         Spacer(
@@ -447,7 +447,7 @@ fun HomeScreen(
                                             ),
                                         )
                                     }
-                                    Spacer(modifier = Modifier.height(6.dp))
+                                    Spacer(modifier = Modifier.height(4.dp))
                                     val item = (block as? HomeBlock.Shelf)?.item
                                     // Quick picks takes the hero carousel and the song-card shelves ("Your
                                     // daily discover") take the 4-row list, swapped from upstream.
@@ -568,7 +568,7 @@ fun HomeScreen(
                     modifier =
                         Modifier
                             .horizontalScroll(chipRowState)
-                            .padding(vertical = 8.dp, horizontal = 15.dp)
+                            .padding(vertical = 6.dp, horizontal = 12.dp)
                             .background(Color.Transparent),
                     horizontalArrangement = Arrangement.spacedBy(4.dp),
                     verticalAlignment = Alignment.CenterVertically,
@@ -661,9 +661,9 @@ private sealed interface HomeBlock {
 
 private fun HomeLayout.CardSize.width(): Dp =
     when (this) {
-        HomeLayout.CardSize.SMALL -> 104.dp
-        HomeLayout.CardSize.MEDIUM -> 136.dp
-        HomeLayout.CardSize.LARGE -> 176.dp
+        HomeLayout.CardSize.SMALL -> 112.dp
+        HomeLayout.CardSize.MEDIUM -> 148.dp
+        HomeLayout.CardSize.LARGE -> 188.dp
     }
 
 /** Avatar, desktop's greeting, Listen Together and Settings. The avatar opens the account picker. */
@@ -697,12 +697,12 @@ fun HomeTopAppBar(
     ) {
         // Signed out (or mid sign-in) there is no picture: no avatar, not the app icon in its place.
         account?.second?.takeIf { it.isNotBlank() }?.let { url ->
-            Avatar(url, 38.dp, Modifier.clickable(onClick = onAvatarClick))
+            Avatar(url, 34.dp, Modifier.clickable(onClick = onAvatarClick))
             Spacer(Modifier.width(8.dp))
         }
         Text(
             text = if (firstName != null) "$daypart, $firstName" else daypart,
-            style = typo().titleLarge,
+            style = typo().titleMedium,
             color = MaterialTheme.colorScheme.onBackground,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
@@ -837,7 +837,7 @@ fun QuickPicks(
                 }
                 Text(
                     text = homeItem.title,
-                    style = typo().titleLarge,
+                    style = typo().titleMedium,
                     color = MaterialTheme.colorScheme.onBackground,
                     maxLines = 1,
                     modifier =
@@ -860,7 +860,7 @@ fun QuickPicks(
         }
         LazyHorizontalGrid(
             rows = GridCells.Fixed(4),
-            modifier = Modifier.height(216.dp),
+            modifier = Modifier.height(204.dp),
             state = lazyListState,
             flingBehavior = snapperFlingBehavior,
         ) {
@@ -909,7 +909,7 @@ fun MoodMomentAndGenre(
 ) {
     Column(
         Modifier
-            .padding(vertical = 8.dp),
+            .padding(vertical = 4.dp),
     ) {
         Text(
             text = stringResource(Res.string.let_s_pick_a_playlist_for_you),
@@ -924,17 +924,17 @@ fun MoodMomentAndGenre(
             val flingBehavior = rememberSnapFlingBehavior(SnapLayoutInfoProvider(lazyGridState = gridState))
             Text(
                 text = section.title,
-                style = typo().titleLarge,
+                style = typo().titleMedium,
                 color = MaterialTheme.colorScheme.onBackground,
                 maxLines = 1,
                 modifier =
                     Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 5.dp),
+                        .padding(vertical = 4.dp),
             )
             LazyHorizontalGrid(
                 rows = GridCells.Fixed(3),
-                modifier = Modifier.height(192.dp),
+                modifier = Modifier.height(174.dp),
                 state = gridState,
                 flingBehavior = flingBehavior,
             ) {
@@ -969,13 +969,13 @@ fun ChartTitle() {
         )
         Text(
             text = stringResource(Res.string.chart),
-            style = typo().titleLarge,
+            style = typo().titleMedium,
             color = MaterialTheme.colorScheme.onBackground,
             maxLines = 1,
             modifier =
                 Modifier
                     .fillMaxWidth()
-                    .padding(vertical = 5.dp),
+                    .padding(vertical = 4.dp),
         )
     }
 }
@@ -1004,7 +1004,7 @@ fun ChartData(
         chart.listChartItem.forEach { item ->
             Text(
                 text = item.title,
-                style = typo().titleLarge,
+                style = typo().titleMedium,
                 color = MaterialTheme.colorScheme.onBackground,
                 maxLines = 1,
                 modifier =
@@ -1041,11 +1041,11 @@ fun ChartData(
             modifier =
                 Modifier
                     .fillMaxWidth()
-                    .padding(vertical = 10.dp),
+                    .padding(vertical = 6.dp),
         )
         LazyHorizontalGrid(
             rows = GridCells.Fixed(3),
-            modifier = Modifier.height(220.dp),
+            modifier = Modifier.height(204.dp),
             state = lazyListState2,
             flingBehavior = snapperFlingBehavior2,
         ) {
@@ -1076,19 +1076,19 @@ fun ChartData(
         chart.podcasts?.let { podcasts ->
             Text(
                 text = podcasts.title,
-                style = typo().titleLarge,
+                style = typo().titleMedium,
                 color = MaterialTheme.colorScheme.onBackground,
                 maxLines = 1,
                 modifier =
                     Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 10.dp),
+                        .padding(vertical = 6.dp),
             )
             val podcastGridState = rememberLazyGridState()
             val podcastFlingBehavior = rememberSnapFlingBehavior(SnapLayoutInfoProvider(lazyGridState = podcastGridState))
             LazyHorizontalGrid(
                 rows = GridCells.Fixed(3),
-                modifier = Modifier.height(220.dp),
+                modifier = Modifier.height(204.dp),
                 state = podcastGridState,
                 flingBehavior = podcastFlingBehavior,
             ) {
