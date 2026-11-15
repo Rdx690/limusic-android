@@ -5,14 +5,13 @@ import androidx.compose.ui.graphics.Color
 // ===== Brand =====
 
 /**
- * Seed for the generated schemes (a custom colour the user has not picked yet). Limusic's crimson,
- * the desktop app's `--primary` in its dark palette.
+ * Seed for generated schemes when the user has not picked a custom colour: VFX electric violet.
  */
 val seed = Color(0xFF786BFF)
 
 // ===== Limusic palette =====
-// Converted from the desktop app's default theme tokens (ui/src/routes/layout.css, oklch with the
-// neutral hue 326). The neutrals carry a faint magenta tint; the accent is a crimson.
+// VFX MUSIC's near-black glass palette: violet is primary and orange is the restrained secondary
+// accent; neutral surfaces keep album artwork visually dominant.
 
 internal object LimusicDark {
     val background = Color(0xFF080A14)

@@ -18,3 +18,7 @@
 
 - [x] Existing backend/API/database/auth connections are not replaced or removed.
 - [x] Build and package the updated Android APK after source validation.
+
+## Theme rendering fix
+
+- [x] Default VFX violet/orange palette values are wired through the active Material color scheme instead of being overridden by the legacy muted-grey secondary mapping.

@@ -16,6 +16,8 @@ Upgrade the existing Kotlin Multiplatform/Compose app in place. Preserve the cur
 
 **Signature elements:** 60dp greeting bar, 188dp square artwork cards, hairline progress accent, and rounded translucent player/navigation surfaces.
 
+**Theme wiring note:** the default Material scheme must map its secondary roles from the VFX palette tokens. The colour fix removes the legacy muted-grey override so the configured orange secondary accent is visible in the running app.
+
 **Interaction and animation:** preserve existing swipe, queue, playback, pagination, and navigation behavior; keep the existing fade/slide/crossfade transitions and reduce only layout footprint.
 
 **Responsive behavior:** shared Dp tokens are used for phone, tablet, and desktop; desktop rail/floating player behavior stays intact while phone bottom chrome remains fixed.
